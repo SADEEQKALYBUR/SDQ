@@ -1,0 +1,50 @@
+/* LOGO FLOAT */
+.animate-logo{
+  animation:float 3s ease-in-out infinite;
+}
+
+/* IMAGE WATER SHINE */
+.water-img{
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 0 15px rgba(0,200,255,0.6);
+}
+
+.water-img::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:radial-gradient(circle,
+    rgba(255,255,255,0.35),
+    transparent 60%);
+  animation:shine 5s linear infinite;
+}
+
+.water-img:hover{
+  transform:scale(1.1) rotate(3deg);
+  box-shadow:0 0 30px cyan;
+}
+
+/* LINK ANIMATION */
+.nav-anim::after{
+  content:"";
+  display:block;
+  width:0;
+  height:2px;
+  background:gold;
+  transition:0.3s;
+}
+
+.nav-anim:hover::after{
+  width:100%;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+
+@keyframes shine{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
