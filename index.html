@@ -2,54 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mr. A Sport and More</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. A Sport and More</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/glass.css">
-  <link rel="stylesheet" href="css/animation.css">
-  <link rel="stylesheet" href="css/cards.css">
 </head>
 <body>
 
-<nav class="navbar glass water">
+<!-- ✅ NAVBAR -->
+<nav class="navbar">
 
   <!-- LOGO -->
-  <div class="logo animate-logo">
-    <div class="logo-img water-img"></div>
+  <div class="logo">
+    <div class="logo-img"></div>
     <span>Mr. A Sport<br>and More</span>
   </div>
 
   <!-- LINKS -->
   <ul class="nav-links" id="navLinks">
-    <li><a href="#" class="nav-anim">Home</a></li>
-    <li><a href="#" class="nav-anim">About</a></li>
-    <li><a href="#" class="nav-anim">Services</a></li>
-    <li><a href="#" class="nav-anim">Contact</a></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
 
     <li class="search-box">
       <input type="text" placeholder="Search...">
     </li>
   </ul>
 
-  <div class="menu-icon" id="menuIcon">☰</div>
-</nav>
-<nav class="navbar glass water">...</nav>
+  <!-- ☰ MENU ICON -->
+  <div class="menu-icon" id="menuIcon">
+    ☰
+  </div>
 
+</nav>
+
+
+<!-- ✅ MAIN CONTENT -->
+<main>
+
+<!-- HERO -->
 <section class="hero">
+
   <div class="hero-text">
     <h1>Mr. A Sport and More</h1>
+
     <p>
-      We provide quality sportswear, gym equipment, and accessories
-      for professionals and beginners. Strong. Stylish. Affordable.
+      We provide quality sportswear, gym equipment,
+      and accessories for professionals and beginners.
+      Strong. Stylish. Affordable.
     </p>
+
     <a href="#" class="hero-btn">Explore More</a>
   </div>
 
   <div class="hero-image"></div>
+
 </section>
 
-<script src="js/script.js"></script>
+<section class="products">
+
+  <!-- TOP 3 -->
+  <div class="product-grid top">
+    
+    <div class="card">
+      <img src="images/product1.jpg">
+      <h3>Running Shoes</h3>
+      <p>Super comfortable for athletes.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/product2.jpg">
+      <h3>Gym Gloves</h3>
+      <p>Protect your hands while lifting.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/product3.jpg">
+      <h3>Sports Bottle</h3>
+      <p>Stay hydrated during workouts.</p>
+    </div>
+
+  </div>
+
+
+  <!-- CENTER BIG -->
+  <div class="featured-card">
+
+    <img src="images/featured.jpg">
+
+    <div class="featured-text">
+      <h2>Premium Treadmill</h2>
+      <p>
+        Perfect for home workouts. Silent motor,
+        modern design, and built for performance.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- BOTTOM 4 -->
+  <div class="product-grid bottom">
+
+    <div class="card">
+      <img src="images/product4.jpg">
+      <h3>Yoga Mat</h3>
+      <p>Soft and anti-slip material.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/product5.jpg">
+      <h3>Dumbbells</h3>
+      <p>Build strength easily.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/product6.jpg">
+      <h3>Fitness Watch</h3>
+      <p>Track your progress daily.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/product7.jpg">
+      <h3>Sports Bag</h3>
+      <p>Carry everything in style.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="beauty-section">
+
+  <h2 class="section-title">Premium Grooming Services</h2>
+
+  <div class="beauty-container">
+
+    <!-- CARD 1 -->
+    <div class="beauty-card">
+      <img src="images/barbing.jpg">
+
+      <div class="beauty-text">
+        <h3>Professional Barbing</h3>
+        <p>
+          Get a clean, modern haircut from expert barbers.
+          Look sharp. Feel confident.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- CARD 2 -->
+    <div class="beauty-card">
+      <img src="images/facial.jpg">
+
+      <div class="beauty-text">
+        <h3>Advanced Face Care</h3>
+        <p>
+          Refresh your skin with our premium facial treatments.
+          Smooth, bright, and healthy skin guaranteed.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- VIDEO -->
+  <div class="video-box">
+
+    <video controls autoplay muted loop>
+      <source src="video/barbing.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+</section>
+
+</main>
+
 
 </body>
 </html>
