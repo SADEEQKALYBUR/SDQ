@@ -10,36 +10,47 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ✅ NAVBAR -->
 <nav class="navbar">
+
+  <!-- LOGO -->
   <div class="logo">
     <div class="logo-img"></div>
     <span>Mr. A Sport<br>and More</span>
   </div>
 
+  <!-- LINKS -->
   <ul class="nav-links" id="navLinks">
     <li><a href="#">Home</a></li>
     <li><a href="#">About</a></li>
     <li><a href="#">Services</a></li>
     <li><a href="#">Contact</a></li>
+
     <li class="search-box">
       <input type="text" placeholder="Search...">
     </li>
   </ul>
 
-  <div class="menu-icon" id="menuIcon">☰</div>
+  <!-- ☰ MENU ICON -->
+  <div class="menu-icon" id="menuIcon">
+    ☰
+  </div>
+
 </nav>
 
+
+<!-- ✅ MAIN CONTENT -->
 <main>
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline class="hero-video">
     <source src="videos/hero.mp4" type="video/mp4">
+    Browser dinka baya goyon bayan video.
   </video>
 
   <div class="hero-text">
-    <h1>Welcome to Mr. A Sport and More</h1>
+    <h1>Welcome to My Website</h1>
     <p>Best products just for you</p>
   </div>
 </section>
@@ -154,8 +165,48 @@
   </div>
 
 
-  
+  <!-- VIDEO -->
+  <div class="video-box">
 
+    <video controls autoplay muted loop>
+      <source src="video/barbing.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+</section>
+<section class="restaurant-menu">
+    <h2 class="menu-title">Menu na Abinci</h2>
+    
+    <div class="menu-container">
+        <div class="menu-item">
+            <div class="item-info">
+                <h3>Shinkafa da Wakke</h3>
+                <p>Tareda kifi, kwai, da yaji mai dadi.</p>
+            </div>
+            <span class="price">₦1,500</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-info">
+                <h3>Tuwon Shinkafa</h3>
+                <p>Miyan kuka ko mika taushe da naman saniya.</p>
+            </div>
+            <span class="price">₦2,000</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-info">
+                <h3>Gasashshen Kaza</h3>
+                <p>Cikakkiyar kaza tareda dankalin turawa.</p>
+            </div>
+            <span class="price">₦4,500</span>
+        </div>
+    </div>
+
+    <div class="total-section">
+        <button id="orderBtn">Yi Odar Abinci</button>
+    </div>
 </section>
 
 </main>
