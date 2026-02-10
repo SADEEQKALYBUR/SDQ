@@ -1,0 +1,43 @@
+/* FADE IN */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.products .card,
+.featured-card{
+  animation:fadeUp 1s ease forwards;
+}
+
+/* IMAGE ZOOM */
+.card img,
+.featured-card img{
+  transition:0.5s ease;
+}
+
+.card:hover img,
+.featured-card:hover img{
+  transform:scale(1.08);
+}
+
+/* FEATURE TEXT SLIDE */
+@keyframes slideRight{
+  from{
+    opacity:0;
+    transform:translateX(50px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+.featured-text{
+  animation:slideRight 1.2s ease forwards;
+}
