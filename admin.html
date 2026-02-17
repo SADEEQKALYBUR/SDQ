@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-header">
+  <img src="assets/logo.png" alt="Company Logo">
+  <h1>Admin Dashboard</h1>
+</div>
+
+  <div class="admin-container">
+
+    <div class="stats">
+      <div class="card">
+        <h3>Today's Sales</h3>
+        <p id="todayTotal">₦0</p>
+      </div>
+
+      <div class="card">
+        <h3>This Month</h3>
+        <p id="monthTotal">₦0</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="downloadDailyPDF()">📄 Daily Report PDF</button>
+      <button onclick="downloadMonthlyPDF()">📄 Monthly Report PDF</button>
+    </div>
+
+    <h2>All Receipts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Receipt No</th>
+          <th>Item</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="receiptTable"></tbody>
+    </table>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

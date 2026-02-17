@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Page</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+
+  <div class="payment-box">
+    <h2>Payment</h2>
+
+    <p><strong>Item:</strong> <span id="item"></span></p>
+    <p><strong>Amount:</strong> ₦<span id="price"></span></p>
+
+    <button class="card" onclick="payWithCard()">Pay with Card</button>
+    <button class="transfer" onclick="payWithTransfer()">Bank Transfer</button>
+  </div>
+
+  <!-- JS FILE -->
+  <script src="js/payment.js"></script>
+</body>
+</html>

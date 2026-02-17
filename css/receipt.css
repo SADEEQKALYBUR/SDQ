@@ -1,0 +1,62 @@
+.logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.logo img {
+  width: 80px;
+  opacity: 0.95;
+}
+.receipt-box {
+  position: relative;
+  max-width: 320px;
+  margin: auto;
+  background: #111;
+  padding: 20px;
+  border: 2px dashed #f1c40f;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* watermark */
+.receipt-box::before {
+  content: "FOOD STORE";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 42px;
+  font-weight: bold;
+  color: rgba(241, 196, 15, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.receipt-box::before {
+  content: "";
+  background: url("../assets/logo.png") no-repeat center;
+  background-size: 160px;
+  opacity: 0.05;
+  position: absolute;
+  inset: 0;
+}
+
+.cut-line {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #f1c40f;
+  border-top: 2px dotted #f1c40f;
+  padding-top: 6px;
+}
+
+
+.receipt-no {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+

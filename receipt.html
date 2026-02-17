@@ -1,0 +1,33 @@
+  <link rel="stylesheet" href="css/receipt.css">
+<div class="receipt-box">
+  <div class="logo">
+    <img src="assets/logo.png" alt="Company Logo">
+  </div>
+
+  <h2>Food Store</h2>
+
+  <p id="datetime"></p>
+
+  <p>Item: <span id="item"></span></p>
+  <p>Amount: ₦<span id="price"></span></p>
+  <p>Payment: <span id="method"></span></p>
+
+  <div id="qrcode"></div>
+<p class="receipt-no">
+  Receipt No: <span id="receiptId"></span>
+</p>
+
+  <button onclick="sendWhatsApp()">Send via WhatsApp</button>
+  <button onclick="sendEmail()">Send via Email</button>
+<button onclick="printReceipt()">🖨 Print Receipt</button>
+
+    <div class="cut-line">✂ CUT HERE</div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<button onclick="downloadPDF()">📄 Download PDF</button>
+
+<script src="js/receipt.js"></script>

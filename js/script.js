@@ -35,3 +35,9 @@ function updateHero() {
 setInterval(updateHero, 4000);
 updateHero(); // Fara lokaci daya
 
+
+function goToPayment(name, price) {
+  window.location.href = "payment.html?item=" + 
+    encodeURIComponent(name) + "&price=" + price;
+
+}

@@ -1,0 +1,69 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.admin-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #f1c40f;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #111;
+  padding: 20px;
+  flex: 1;
+  border: 2px solid #f1c40f;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  background: #f1c40f;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #f1c40f;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: #222;
+}
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-header img {
+  width: 60px;
+  height: auto;
+}
