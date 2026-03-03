@@ -1,0 +1,160 @@
+/* 1. SAITIN SHAFIN GABA DAYA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #000; /* Baki gaba daya */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 2. AKWATIN LOGIN (LOGIN CONTAINER) */
+.login-container {
+    background: #111; /* Baki mai haske kadan */
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid #ffcc00; /* Yellow Border */
+    box-shadow: 0px 0px 30px rgba(255, 204, 0, 0.2);
+    width: 380px;
+    text-align: center;
+    color: #fff;
+}
+
+/* 3. LOGO DA SUNAN BRAND */
+.logo-area {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ffcc00;
+    padding: 5px;
+    background: #222;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: 0.6s ease-in-out;
+}
+
+/* Idan ka taba hoton zai juya */
+.site-logo:hover {
+    transform: rotate(360deg);
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #fff; /* MR.SPORT zai zama fari */
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.brand-name span {
+    color: #ffcc00; /* & MORE zai zama yellow */
+}
+
+/* 4. TSARIN FORM DA INPUTS */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: #ffcc00; /* Rubutun ciki zai zama yellow */
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.3);
+}
+
+/* 5. ANIMATED BUTTON (MAI CANZA KALA) */
+.animated-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    color: #000;
+    text-transform: uppercase;
+    margin-top: 10px;
+    /* Wannan shine animation din da zai canza launuka */
+    animation: colorRainbow 5s infinite alternate;
+    transition: 0.3s;
+}
+
+@keyframes colorRainbow {
+    0%   { background-color: #ffcc00; } /* Yellow */
+    25%  { background-color: #ff5733; } /* Orange */
+    50%  { background-color: #00ffcc; } /* Cyan */
+    75%  { background-color: #ff00ff; } /* Pink */
+    100% { background-color: #ffffff; } /* White */
+}
+
+.animated-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* 6. SOCIAL LOGIN SECTION */
+.social-login {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+}
+
+.social-login p {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icons a {
+    font-size: 26px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Launukan Icons na Social Media */
+.fa-snapchat { color: #fffc00; }
+.fa-github   { color: #ffffff; }
+.fa-facebook { color: #1877f2; }
+.fa-google   { color: #db4437; }
+
+.icons a:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.2);
+}

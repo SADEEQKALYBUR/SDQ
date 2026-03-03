@@ -1,25 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Payment Page</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/payment.css">
 </head>
 <body>
 
-  <div class="payment-box">
-    <h2>Payment</h2>
+<div class="order-container">
 
-    <p><strong>Item:</strong> <span id="item"></span></p>
-    <p><strong>Amount:</strong> ₦<span id="price"></span></p>
-
-    <button class="card" onclick="payWithCard()">Pay with Card</button>
-    <button class="transfer" onclick="payWithTransfer()">Bank Transfer</button>
+  <div class="order-icon">
+    💳
   </div>
 
-  <!-- JS FILE -->
+  <h2 class="order-title">Order Summary</h2>
+
+  <div class="order-row">
+    <span>Product:</span>
+    <span id="pName"></span>
+  </div>
+
+  <div class="order-row">
+    <span>Price:</span>
+    <span>₦<span id="pPrice"></span></span>
+  </div>
+
+  <div class="order-row">
+    <span>Quantity:</span>
+    <span id="pQty"></span>
+  </div>
+
+  <hr class="divider">
+
+  <div class="order-row total-row">
+    <span>Total:</span>
+    <span>₦<span id="pTotal"></span></span>
+  </div>
+
+ <button class="payment-button" onclick="payWithPaystack()">
+  Proceed to Pay
+</button>
+
+</div>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
   <script src="js/payment.js"></script>
 </body>
 </html>

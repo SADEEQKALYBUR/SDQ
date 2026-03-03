@@ -2,26 +2,142 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Segoe UI, sans-serif;
+  font-family:'Segoe UI', sans-serif;
 }
 
 body{
   background:#000;
   color:#fff;
+  overflow-x:hidden;
+  animation:fadeIn 0.8s ease-in;
 }
 
 /* ================= NAVBAR ================= */
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-link a {
+  background: #ff9800;
+  color: #000;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.admin-link a:hover {
+  background: #e68900;
+}
 .navbar{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
-  height:70px;
+  height:75px;
+  background:rgba(0,0,0,0.9);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:0 20px;
-  background:rgba(0,0,0,.7);
-  z-index:1000;
+  padding:0 8%;
+  z-index:999;
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,215,0,0.2);
+}
+
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#FFD700;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.logo-img{
+  width:40px;
+  height:40px;
+  background:#FFD700;
+  border-radius:50%;
+}
+
+/* LINKS */
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:#fff;
+  font-weight:500;
+  transition:0.3s;
+  position:relative;
+}
+
+.nav-links li a:hover{
+  color:#FFD700;
+}
+
+/* underline animation */
+.nav-links li a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:2px;
+  left:0;
+  bottom:-5px;
+  background:#FFD700;
+  transition:0.3s;
+}
+
+.nav-links li a:hover::after{
+  width:100%;
+}
+
+/* MENU ICON */
+.menu-icon{
+  display:none;
+  font-size:28px;
+  color:#FFD700;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .nav-links{
+    position:absolute;
+    top:75px;
+    right:-100%;
+    width:250px;
+    height:100vh;
+    background:#000;
+    flex-direction:column;
+    align-items:center;
+    padding-top:50px;
+    gap:25px;
+    transition:0.4s;
+  }
+
+  .nav-links.active{
+    right:0;
+  }
+
+  .menu-icon{
+    display:block;
+  }
+
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 
 .logo{
@@ -88,6 +204,8 @@ body{
 .hero-content {
   flex: 1;
   color: white;
+  font-size: 28px;
+
 }
 
 .highlight {
@@ -123,6 +241,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  
 }
 
 .side-imgs img {
@@ -139,6 +258,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  
 }
 
 .shop-section {
@@ -165,13 +285,27 @@ body {
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  
+   border: 2px solid #ffcc00; /* Yellow border a jikin hoton */
+   box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
   /* Wannan shi ne animation din da kake so na shigowar Yellow */
   opacity: 0;
   transform: translateY(30px);
   animation: slideInYellow 0.8s ease forwards;
 }
+.book-btn {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+}
 
+.book-btn:hover {
+  opacity: 0.8;
+}
 /* Takaita girman babban katin */
 .featured-card-small {
   display: flex;
@@ -200,7 +334,13 @@ body {
   border-radius: 10px;
   border: 2px solid #ffcc00; /* Yellow border a jikin hoton */
 }
-
+.old-price {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;   /* kaurin layin */
+  text-decoration-color: red;       /* launin layin */
+  color: #888;                      /* launin rubutu */
+  margin-right: 8px;
+}
 /* Sanya rubutun ya zama daidai */
 .featured-content {
   flex: 1.5; /* Rubutun zai dan fi hoton fadi kadan */
@@ -702,15 +842,469 @@ body {
   100% { box-shadow: 10px 0 25px rgba(231, 4, 4, 0.8); }
 }
 
-
-/* PAGE TRANSITION */
-.fade-out{
+/* --- PAGE TRANSITION --- */
+.fade-out {
   animation: fadeOut 0.8s forwards;
 }
 
-@keyframes fadeOut{
-  to{
-    opacity:0;
-    transform:scale(0.95);
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.95);
   }
+}
+
+/* --- Babban Bangaren (Section) --- */
+.pro-five-section {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 20px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.pro-five-title {
+  text-align: center;
+  color: #ffcc00;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- Tsarin Grid (Responsive Gyara) --- */
+.pro-five-grid {
+  display: flex;
+  flex-wrap: nowrap; /* A bar su a kwance don manyan fuska */
+  gap: 25px;
+  overflow-x: auto; /* Zai ba da scroll a gefe idan sun cika fili */
+  padding: 20px 10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- Katin Abinci (Product Card) --- */
+.pro-card {
+  background: #111;
+  border: 1px solid #333; /* Border mai rauni kadan */
+  border-radius: 15px;
+  padding: 20px;
+  min-width: 280px; /* Girman katin */
+  max-width: 280px;
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  /* Scroll Animation */
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
+}
+
+.pro-card:hover {
+  border-color: #ffcc00;
+  transform: translateY(-10px);
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pro-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Don hoton ya fito da kyau ko da wane size ne */
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.pro-card h4 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+
+/* --- Farashi (Soke tsohon farashi) --- */
+.pro-price {
+  margin: 15px 0;
+}
+
+.pro-price del {
+  color: #ff4444; /* Ja don nuna an soke */
+  margin-right: 12px;
+  font-size: 1rem;
+  text-decoration: line-through;
+}
+
+.pro-price span {
+  color: #ffcc00; /* Yellow don sabon farashi */
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+/* --- Buy Button Animation --- */
+.buy-btn {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 15px;
+  border-radius: 30px; /* Round button yafi kyau */
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.buy-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.buy-btn:hover::before {
+  left: 100%;
+}
+
+.buy-btn:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+}
+
+/* --- Responsive Media Queries (Waya) --- */
+@media (max-width: 768px) {
+  .pro-five-grid {
+    flex-wrap: wrap; /* A nan ne zasu dawo kasa-kasa a waya */
+    justify-content: center;
+  }
+  
+  .pro-card {
+    min-width: 100%; /* Katin zai cika fadin waya */
+    max-width: 100%;
+  }
+
+  .pro-five-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- Boye Scrollbar --- */
+.pro-five-grid::-webkit-scrollbar {
+  height: 6px;
+}
+.pro-five-grid::-webkit-scrollbar-thumb {
+  background: #ffcc00;
+  border-radius: 10px;
+}
+/* Babban Section */
+.smoking-section {
+    background: #000;
+    padding: 80px 10%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Tsarin Grid */
+.smoking-grid {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.top-row, .bottom-row {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.middle-row {
+    grid-template-columns: 1fr;
+    max-width: 80%;
+    margin: 0 auto 30px;
+}
+
+/* Salon Katin (Card) */
+.smoke-card {
+    position: relative;
+    background: #111;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid #333;
+    transition: 0.5s;
+}
+
+/* Girman katin tsakiya */
+.featured-smoke {
+    height: 450px;
+}
+
+/* Hoton Ciki */
+.smoke-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: 0.5s;
+    filter: brightness(0.7);
+}
+
+/* Smoking Animation Background */
+.smoke-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.2), transparent);
+    z-index: 2;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+/* Motsin Hayaki (Animation) */
+.smoke-card:hover .smoke-bg {
+    opacity: 1;
+    animation: smokeMove 2s infinite linear;
+}
+
+@keyframes smokeMove {
+    0% { transform: scale(1) translate(0, 0); filter: blur(10px); }
+    50% { transform: scale(1.2) translate(-10px, -10px); filter: blur(20px); }
+    100% { transform: scale(1) translate(0, 0); filter: blur(10px); }
+}
+
+/* Bayani (Content) */
+.smoke-content {
+    position: relative;
+    z-index: 3;
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: #fff;
+}
+
+.smoke-content h3, .smoke-content h2 {
+    color: #ffcc00;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.smoke-content p {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+/* Hover Effects */
+.smoke-card:hover {
+    border-color: #ffcc00;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.3);
+}
+
+.smoke-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+/* Responsive (Waya) */
+@media (max-width: 900px) {
+    .top-row, .bottom-row {
+        grid-template-columns: 1fr;
+    }
+    .middle-row {
+        max-width: 100%;
+    }
+    .smoke-card {
+        height: 300px;
+    }
+}
+/* ================= FOOTER STYLE ================= */
+.main-footer {
+    background-color: #050505;
+    color: #fff;
+    padding: 60px 0 20px;
+    border-top: 3px solid #ffcc00; /* Layin Yellow a sama */
+    font-family: 'Segoe UI', sans-serif;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 5%;
+}
+
+.footer-box h3 {
+    color: #ffcc00;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Layin ado a karkashin kowane Title */
+.footer-box h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffcc00;
+}
+
+.footer-box p {
+    line-height: 1.6;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+/* Links Style */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: 0.3s;
+    display: block;
+}
+
+.footer-links li a:hover {
+    color: #ffcc00;
+    transform: translateX(10px); /* Turewa kadan idan an taba */
+}
+
+/* Contact Info Style */
+.contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.contact-info li i {
+    color: #ffcc00;
+    font-size: 1.1rem;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;
+    color: #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.4s;
+    border: 1px solid #333;
+}
+
+.social-icons a:hover {
+    background: #ffcc00;
+    color: #000;
+    transform: translateY(-5px);
+}
+
+/* Newsletter Form */
+.newsletter-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    background: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+.newsletter-form button {
+    padding: 12px 20px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #e6b800;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.footer-bottom b {
+    color: #ffcc00;
+}
+
+/* Tsarin Waya (Responsive) */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-box h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
 }

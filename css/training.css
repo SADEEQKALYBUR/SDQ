@@ -1,0 +1,80 @@
+/* GENERAL */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+}
+
+/* TRAINING SECTION */
+.training{
+  background:#000;
+  padding:100px 20px;
+  text-align:center;
+}
+
+.training h1{
+  font-size:42px;
+  margin-bottom:20px;
+  color:#FFD700; /* Yellow */
+}
+
+.training .intro{
+  max-width:600px;
+  margin:0 auto 40px;
+  font-size:18px;
+  color:#ccc;
+}
+
+/* BOX STYLE */
+.box{
+  background:#111;
+  padding:25px;
+  margin:20px auto;
+  max-width:500px;
+  border-radius:12px;
+  border:2px solid #FFD700;
+  transition:0.3s;
+}
+
+.box:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 20px #FFD700;
+}
+
+.box h2{
+  margin-bottom:15px;
+  color:#FFD700;
+}
+
+.box ul{
+  list-style:none;
+}
+
+.box ul li{
+  margin:10px 0;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  padding:12px 25px;
+  background:#FFD700;
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:6px;
+  margin-top:20px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#fff;
+  color:#000;
+  box-shadow:0 0 15px #FFD700;
+}

@@ -1,0 +1,46 @@
+  <link rel="stylesheet" href="css/service.css">
+
+  
+<nav class="navbar">
+  <div class="logo">
+  <img src="images/logo.png" alt="Mr A Sport Logo" class="logo-img">
+  <span>Mr. A Sport<br>and More</span>
+</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <div class="menu-icon" id="menuIcon">☰</div>
+</nav>
+
+<section class="services">
+  <h2>Our Services</h2>
+
+  <div class="service-grid">
+    <div class="service-card" onclick="openService('gym')">Gym & Fitness</div>
+    <div class="service-card" onclick="openService('football')">Football</div>
+    <div class="service-card" onclick="openService('swimming')">Swimming Pool</div>
+    <div class="service-card" onclick="openService('game')">Game Center</div>
+    <div class="service-card" onclick="openService('barbing')">Barbing Salon</div>
+    <div class="service-card" onclick="openService('massage')">Massage</div>
+    <div class="service-card" onclick="openService('shisha')">Shisha Lounge</div>
+    <div class="service-card" onclick="openService('restaurant')">Restaurant</div>
+    <div class="service-card" onclick="openService('yoga')">Yoga</div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="service-modal" id="serviceModal">
+  <div class="service-content">
+    <span class="close" onclick="closeService()">×</span>
+    <h2 id="serviceTitle"></h2>
+    <p id="serviceDesc"></p>
+<a href="booking.html?service=Swimming" class="btn">Book Now</a>
+  </div>
+</div>
+
+  <script src="js/service.js"></script>

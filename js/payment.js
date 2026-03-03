@@ -1,47 +1,84 @@
-const params = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", function () {
 
-document.getElementById("item").textContent = params.get("item");
-document.getElementById("price").textContent = params.get("price");
+  let service = localStorage.getItem("service");
+  let price = localStorage.getItem("price");
+  let qty = localStorage.getItem("qty") || 1;
 
-function payWithCard() {
-  alert("Card payment coming soon (Paystack / Flutterwave)");
+  if (!service || !price) {
+    alert("No product selected!");
+    window.location.href = "index.html";
+    return;
+  }
+
+  price = Number(price);
+  qty = Number(qty);
+
+  let total = price * qty;
+
+  document.getElementById("pName").textContent = service;
+  document.getElementById("pPrice").textContent = "₦" + price;
+  document.getElementById("pQty").textContent = qty;
+  document.getElementById("pTotal").textContent = "₦" + total;
+
+  document.querySelector(".payment-button")
+    .addEventListener("click", function () {
+      payWithPaystack(service, price, qty, total);
+    });
+
+});
+
+function payWithPaystack(name, price, qty, total) {
+
+  let handler = PaystackPop.setup({
+    key: "YOUR_PUBLIC_KEY",
+    email: "customer@email.com",
+    amount: total * 100,
+    currency: "NGN",
+
+    callback: function(response) {
+
+      fetch("http://localhost:3000/api/verify-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          reference: response.reference,
+          product_name: name,
+          price: price,
+          qty: qty,
+          total: total
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("Payment Successful ✅ Receipt: " + data.receiptNo);
+        window.location.href =
+          "receipt.html?receipt=" + data.receiptNo;
+      });
+
+    },
+
+    onClose: function() {
+      alert("Payment cancelled");
+    }
+  });
+
+  handler.openIframe();
 }
 
-function payWithTransfer() {
-  alert(
-    "Transfer Details:\n\n" +
-    "Bank: GTBank\n" +
-    "Account No: 0123456789\n" +
-    "Name: Food Store"
-  );
-}
+function payWithPaystack() {
+  let handler = PaystackPop.setup({
+    key: 'pk_test_78fff190640337a7124e226987296b71c97cdbcc',
+    email: 'customer@email.com',
+    amount: 500000, // 5000 NGN (a kobo ake saka)
+    currency: 'NGN',
+    callback: function(response) {
+      alert('Payment successful! Reference: ' + response.reference);
+      window.location.href = "success.html";
+    },
+    onClose: function() {
+      alert('Transaction was not completed');
+    }
+  });
 
-
-function payWithCard() {
-  createReceipt("Card");
-}
-
-function payWithTransfer() {
-  createReceipt("Transfer");
-}
-
-function createReceipt(method) {
-  const params = new URLSearchParams(window.location.search);
-
-  const receipt = {
-    id: Date.now(),
-    item: params.get("item"),
-    price: params.get("price"),
-    method: method,
-    date: new Date().toLocaleDateString(),
-    time: new Date().toLocaleTimeString()
-  };
-
-  localStorage.setItem("lastReceipt", JSON.stringify(receipt));
-
-  let allReceipts = JSON.parse(localStorage.getItem("receipts")) || [];
-  allReceipts.push(receipt);
-  localStorage.setItem("receipts", JSON.stringify(allReceipts));
-
-  window.location.href = "receipt.html";
+  handler.openIframe();
 }

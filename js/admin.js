@@ -1,74 +1,85 @@
-const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+// ===== LOAD BOOKINGS =====
+fetch("/api/bookings")
+  .then(res => res.json())
+  .then(data => {
+    const table = document.getElementById("receiptTable");
+    table.innerHTML = "";
 
-const today = new Date().toLocaleDateString();
-const month = new Date().getMonth();
-const year = new Date().getFullYear();
+    data.forEach((b, index) => {
+      table.innerHTML += `
+        <tr>
+          <td>#${index + 1}</td>
+          <td>${b.service}</td>
+          <td>—</td>
+          <td>${b.booking_date}</td>
+          <td>${b.booking_time}</td>
+        </tr>
+      `;
+    });
+  });
 
-let todayTotal = 0;
-let monthTotal = 0;
 
-const tbody = document.getElementById("receiptTable");
+// ===== TODAY TOTAL =====
+fetch("/api/today-total")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("todayTotal").innerText =
+      data.total + " bookings";
+  });
 
-receipts.forEach(r => {
-  // table
-  const tr = document.createElement("tr");
-  tr.innerHTML = `
-    <td>FS-${r.id}</td>
-    <td>${r.item}</td>
-    <td>₦${r.price}</td>
-    <td>${r.date}</td>
-    <td>${r.time}</td>
-  `;
-  tbody.appendChild(tr);
 
-  // totals
-  if (r.date === today) {
-    todayTotal += Number(r.price);
-  }
+// ===== MONTH TOTAL =====
+fetch("/api/month-total")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("monthTotal").innerText =
+      data.total + " bookings";
+  });
 
-  const rDate = new Date(r.date);
-  if (rDate.getMonth() === month && rDate.getFullYear() === year) {
-    monthTotal += Number(r.price);
-  }
-});
 
-document.getElementById("todayTotal").textContent = "₦" + todayTotal;
-document.getElementById("monthTotal").textContent = "₦" + monthTotal;
-
-// ================= PDF REPORTS =================
-
+// ===== PDF DOWNLOADS =====
 function downloadDailyPDF() {
-  generatePDF("DAILY SALES REPORT", receipts.filter(r => r.date === today));
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.text("Daily Booking Report", 10, 10);
+  doc.save("daily-bookings.pdf");
 }
 
 function downloadMonthlyPDF() {
-  generatePDF("MONTHLY SALES REPORT", receipts.filter(r => {
-    const d = new Date(r.date);
-    return d.getMonth() === month && d.getFullYear() === year;
-  }));
-}
-
-function generatePDF(title, data) {
   const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF();
+  const doc = new jsPDF();
 
-  pdf.text(title, 20, 20);
-
-  let y = 30;
-  let total = 0;
-
-  data.forEach((r, i) => {
-    pdf.text(
-      `${i + 1}. ${r.item} - NGN ${r.price} (${r.date})`,
-      20,
-      y
-    );
-    total += Number(r.price);
-    y += 8;
-  });
-
-  y += 10;
-  pdf.text("Total: NGN " + total, 20, y);
-
-  pdf.save(title.replaceAll(" ", "_") + ".pdf");
+  doc.text("Monthly Booking Report", 10, 10);
+  doc.save("monthly-bookings.pdf");
 }
+
+
+// ===== LOGOUT (OPTIONAL) =====
+function logout() {
+  window.location.href = "/";
+}
+
+function loadPayments() {
+  fetch("http://localhost:3000/api/payments")
+    .then(res => res.json())
+    .then(data => {
+      const table = document.getElementById("receiptTable");
+      table.innerHTML = "";
+
+      data.forEach(p => {
+        table.innerHTML += `
+          <tr>
+            <td>${p.receipt_no}</td>
+            <td>${p.product_name}</td>
+            <td>${p.qty}</td>
+            <td>₦${p.total}</td>
+            <td>${new Date(p.created_at).toLocaleString()}</td>
+          </tr>
+        `;
+      });
+    });
+}
+
+setInterval(loadPayments, 5000);
+loadPayments();

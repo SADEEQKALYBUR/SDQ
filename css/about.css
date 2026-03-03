@@ -1,0 +1,216 @@
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* BODY BACKGROUND (domin glass effect ya fito) */
+body{
+  background:linear-gradient(135deg,#000,#111,#1a1a1a);
+  min-height:100vh;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+
+  /* GLASS EFFECT */
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+
+  border:1px solid rgba(255,215,0,0.3);
+  border-radius:20px;
+
+  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  z-index:1000;
+
+  animation:fadeDown 1s ease;
+}
+
+/* Fade animation */
+@keyframes fadeDown{
+  from{
+    opacity:0;
+    transform:translate(-50%,-30px);
+  }
+  to{
+    opacity:1;
+    transform:translate(-50%,0);
+  }
+}
+
+/* ================= LOGO ================= */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#FFD700;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* idan kana da hoton logo */
+.logo img{
+  width:40px;
+  height:40px;
+  object-fit:cover;
+}
+
+/* ================= NAV LINKS ================= */
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:#fff;
+  font-weight:500;
+  position:relative;
+  transition:0.3s;
+}
+
+/* Hover underline animation */
+.nav-links li a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#FFD700;
+  transition:0.4s;
+}
+
+.nav-links li a:hover{
+  color:#FFD700;
+}
+
+.nav-links li a:hover::after{
+  width:100%;
+}
+
+/* ================= HAMBURGER ================= */
+
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  color:#FFD700;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.menu-toggle:hover{
+  transform:rotate(90deg);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-100%;
+    height:100vh;
+    width:220px;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(15px);
+
+    border-left:2px solid #FFD700;
+    transition:0.5s ease;
+  }
+
+  .nav-links.active{
+    right:0;
+  }
+}
+
+/* HERO */
+.about-hero{
+  background:#000;
+  color:#FFD700;
+  text-align:center;
+  padding:100px 20px;
+}
+
+.about-hero h1{
+  font-size:40px;
+}
+
+.about-hero p{
+  color:#fff;
+  margin-top:10px;
+}
+
+/* SERVICES */
+.services{
+  background:#000;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:30px;
+  padding:60px 40px;
+}
+
+.card{
+  background:#111;
+  padding:25px;
+  border-radius:12px;
+  border:2px solid #FFD700;
+  color:#fff;
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #FFD700;
+}
+
+.card h2{
+  color:#FFD700;
+  margin-bottom:10px;
+}
+
+/* Fade animation */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeIn 1s forwards;
+}
+
+.delay{
+  animation-delay:0.5s;
+}
+
+@keyframes fadeIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}

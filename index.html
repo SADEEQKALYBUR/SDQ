@@ -7,7 +7,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="css/products.css">
 
 </head>
 <body>
@@ -18,12 +18,19 @@
     <span>Mr. A Sport<br>and More</span>
   </div>
 
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
+ <ul class="nav-links" id="navLinks">
+  <li><a href="#">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="service.html">Services</a></li>
+  <li><a href="#">Contact</a></li>
+
+  <!-- ADMIN LINK -->
+  <li class="login-link">
+    <a href="login.html">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Login
+    </a>
+</li>
 
   <div class="menu-icon" id="menuIcon">☰</div>
 </nav>
@@ -35,9 +42,9 @@
 
   <div class="hero-overlay">
     <div class="hero-content">
-      <h1>MISTER A SPORT AND MORE</h1>
-      <p>Muna samar muku da: <span id="dynamic-text" class="highlight"></span></p>
-      <a href="#" class="btn">Duba Kayayyaki</a>
+      <h1>Mr. A SPORT AND MORE</h1>
+      <p>We offer sports equipment: <span id="dynamic-text" class="highlight"></span></p>
+      <a href="#" class="btn">View Products</a>
     </div>
 
     <div class="hero-gallery">
@@ -50,6 +57,7 @@
       </div>
     </div>
   </div>
+
 </section>
 <section class="shop-section">
   <div class="main-container animate">
@@ -57,21 +65,32 @@
       <img src="images/Running Shoes.png" alt="Running Shoes">
       <h3>Running Shoes</h3>
       <p>Super comfortable for athletes.</p>
-      <a href="booking.html" class="btn">Book Now</a>
-    </div>
+      <a href="#" class="btn book-btn"
+         data-name="Running Shoes"
+          data-price="15000">
+                Book Now
+        </a>    </div>
     
     <div class="card">
       <img src="images/Gym Gloves.png" alt="Gym Gloves">
       <h3>Gym Gloves</h3>
       <p>Protect your hands while lifting.</p>
-      <a href="booking.html" class="btn">Book Now</a>
+      <a href="#" class="btn book-btn"
+   data-name="Gym Gloves"
+   data-price="5000">
+   Book Now
+</a>
     </div>
 
     <div class="card">
       <img src="images/Sports Bottle.png" alt="Sports Bottle">
       <h3>Sports Bottle</h3>
       <p>Stay hydrated during workouts.</p>
-      <a href="booking.html" class="btn">Book Now</a>
+      <a href="#" class="btn book-btn"
+   data-name="Sports Bottle"
+   data-price="3000">
+   Book Now
+</a>
     </div>
   </div>
 
@@ -82,7 +101,15 @@
   <div class="featured-content">
     <h2>Premium Treadmill</h2>
     <p>Perfect for home workouts. Silent motor, modern design, and built for high performance.💪</p>
-    <a href="booking.html" class="btn">Book Now</a>
+    <p class="price">
+  <span class="old-price">₦300,000</span>
+  <span class="new-price">₦250,000</span>
+</p>
+   <a href="#" class="btn book-btn"
+   data-name="Premium Treadmill"
+   data-price="250000">
+   Book Now
+</a>
   </div>
 </div>
 
@@ -92,7 +119,7 @@
     <img src="images/training.jpg" alt="Training">
     <h3>Personal Training</h3>
     <p>Get a customized workout plan designed specifically for your body goals.</p>
-    <a href="booking.html" class="btn">Learn More</a>
+    <a href="personal-training.html" class="btn">Learn More</a>
   </div>
 
   <div class="card small-card">
@@ -105,7 +132,7 @@
     <img src="images/nutrition.jpg" alt="Nutrition">
     <h3>Nutrition Guide</h3>
     <p>Eat healthy with our premium meal plans and supplement recommendations.</p>
-    <a href="nutrition.html" class="btn">View Plans</a>  </div>
+    <a href="nutrition.html" class="btn">Learn More</a>  </div>
 
 </div>
 </section>
@@ -132,7 +159,7 @@
 
     <!-- CARD 2 -->
     <div class="beauty-card">
-      <img src="images/facial.jpg">
+      <img src="images/facial.png">
 
       <div class="beauty-text">
         <h3>Advanced Face Care</h3>
@@ -148,52 +175,217 @@
 
   <!-- VIDEO -->
   <div class="video-box">
-
-    <video controls autoplay muted loop>
-      <source src="video/barbing.mp4" type="video/mp4">
-    </video>
-
-  </div>
+  <video width="100%" controls autoplay muted>
+    <source src="video/barbing.mp4" type="video/mp4">
+    Browser dinka ba ta goyon bayan wannan bidiyon.
+  </video>
+</div>
 
 </section>
 
-<section class="top-dishes">
-  <h2>Our Top Dishes</h2>
+<section class="pro-five-section">
 
-  <div class="dish-grid">
+  <h2 class="pro-five-title">Special Offers</h2>
 
-    <div class="dish-card">
-      <img src="https://images.unsplash.com/photo-1600891965059-7f2b1e3b62a3">
-      <h3>Grilled Chicken</h3>
-      <p class="price"><del>₦6,000</del> <span>₦4,500</span></p>
-      <button onclick="goToPayment('Grilled Chicken', 4500)">Buy</button>
+  <div class="pro-five-grid">
+
+    <div class="pro-card small">
+      <img src="images/food1.jpg" alt="">
+      <h4>Delicious Meal</h4>
+      <div class="pro-price">
+        <del>₦8,000</del>
+        <span>₦5,500</span>
+      </div>
+      <button class="buy-btn" 
+        data-name="Delicious Meal" 
+        data-price="5500">
+  Buy Now
+</button>
     </div>
 
-    <div class="dish-card">
-      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-      <h3>Cheese Burger</h3>
-      <p class="price"><del>₦6,000</del> <span>₦4,500</span></p>
-      <button onclick="goToPayment('Grilled Chicken', 4500)">Buy</button>
+    <div class="pro-card small">
+      <img src="images/food2.jpg" alt="">
+      <h4>Grilled Special</h4>
+      <div class="pro-price">
+        <del>₦7,000</del>
+        <span>₦4,800</span>
+      </div>
+      <button class="buy-btn" 
+        data-name="Grilled Special" 
+        data-price="4800">
+  Buy Now
+</button>
     </div>
 
-    <div class="dish-card">
-      <img src="https://images.unsplash.com/photo-1625944525533-473f1a3b6c2f">
-      <h3>Pasta Bolognese</h3>
-      <p class="price"><del>₦6,000</del> <span>₦4,500</span></p>
-      <button onclick="goToPayment('Grilled Chicken', 4500)">Buy</button>
+    <div class="pro-card center-small">
+      <img src="images/food3.jpg" alt="">
+      <h4>Premium Combo</h4>
+      <div class="pro-price">
+        <del>₦12,000</del>
+        <span>₦8,999</span>
+      </div>
+      <button class="buy-btn" 
+        data-name="Premium Combo" 
+        data-price="8999">
+  Buy Now
+</button>
     </div>
 
-    <div class="dish-card">
-      <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36">
-      <h3>Shrimp Salad</h3>
-      <p class="price"><del>₦6,000</del> <span>₦4,500</span></p>
-      <button onclick="goToPayment('Grilled Chicken', 4500)">Buy</button>
+    <div class="pro-card small">
+      <img src="images/food4.png" alt="">
+      <h4>Family Pack</h4>
+      <div class="pro-price">
+        <del>₦15,000</del>
+        <span>₦11,500</span>
+      </div>
+      <button class="buy-btn" 
+        data-name="Family Pack" 
+        data-price="11500">
+  Buy Now
+</button>
+    </div>
+
+    <div class="pro-card small">
+      <img src="images/food5.jpg" alt="">
+      <h4>Dessert</h4>
+      <div class="pro-price">
+        <del>₦6,000</del>
+        <span>₦3,900</span>
+      </div>
+      <button class="buy-btn" 
+        data-name="Dessert" 
+        data-price="3900">
+  Buy Now
+</button>
     </div>
 
   </div>
-  
 </section>
+<section class="smoking-section">
+    <h2 class="pro-five-title">Our main services for your comfort.</h2>
+
+    <div class="smoking-grid top-row">
+        <div class="smoke-card">
+            <div class="smoke-bg"></div>
+            <img src="images/hoton-1.jpg" alt="Abinci 1">
+            <div class="smoke-content">
+                <h3>Kaji Soyayye</h3>
+                <p>Bayani dalla-dalla akan dadin wannan abincin.</p>
+            </div>
+        </div>
+        <div class="smoke-card">
+            <div class="smoke-bg"></div>
+            <img src="images/hoton-2.jpg" alt="Abinci 2">
+            <div class="smoke-content">
+                <h3>Shinkafa da Nama</h3>
+                <p>Bayani dalla-dalla akan dadin wannan abincin.</p>
+            </div>
+        </div>
+        <div class="smoke-card">
+            <div class="smoke-bg"></div>
+            <img src="images/hoton-3.jpg" alt="Abinci 3">
+            <div class="smoke-content">
+                <h3>Chips & Salad</h3>
+                <p>Bayani dalla-dalla akan dadin wannan abincin.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="smoking-grid middle-row">
+        <div class="smoke-card featured-smoke">
+            <div class="smoke-bg"></div>
+            <img src="images/hoton-manya.jpg" alt="Featured">
+            <div class="smoke-content">
+                <h2>Babban Shagali</h2>
+                <p>Wannan shi ne babban abincinmu wanda kowa ke magana akai.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="smoking-grid bottom-row">
+        <div class="smoke-card">
+            <div class="smoke-bg"></div>
+            <img src="images/hoton-4.jpg" alt="Abinci 4">
+            <div class="smoke-content">
+                <h3>Burger Special</h3>
+                <p>Bayani dalla-dalla akan dadin wannan abincin.</p>
+            </div>
+        </div>
+        <div class="smoke-card">
+            <div class="smoke-bg"></div>
+            <img src="images/hoton-5.jpg" alt="Abinci 5">
+            <div class="smoke-content">
+                <h3>Pizza Hot</h3>
+                <p>Bayani dalla-dalla akan dadin wannan abincin.</p>
+            </div>
+        </div>
+        <div class="smoke-card">
+            <div class="smoke-bg"></div>
+            <img src="images/hoton-6.jpg" alt="Abinci 6">
+            <div class="smoke-content">
+                <h3>Drinks & More</h3>
+                <p>Bayani dalla-dalla akan dadin wannan abincin.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 </main>
-<script src="transition.js"></script>
+<footer class="main-footer">
+    <div class="footer-container">
+        
+        <div class="footer-box about-us">
+            <div class="logo">
+                <div class="logo-img"></div>
+                <span>Mr. A Sport & More</span>
+            </div>
+            <p>We provide the best delicious and high-quality food across the country. Our taste is unique, and your satisfaction is our goal.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Ways</h3>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu Food</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> No. 123 Titin Kano, Najeriya</li>
+                <li><i class="fas fa-phone-alt"></i> +234 800 000 0000</li>
+                <li><i class="fas fa-envelope"></i> info@Mr. A Sport & More.com</li>
+                <li><i class="fas fa-clock"></i> Litinin - Lahadi: 8am - 10pm</li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Our |New</h3>
+            <p>Subscribe to receive notifications about new dishes and discounts.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email dinka..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 <b>Mr. A Sport & More</b>. Duk hakki mallakinmu ne. | An tsara shi da ❤️</p>
+    </div>
+</footer>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/transition.js"></script>
 <script src="js/script.js"></script></body>
 </html>

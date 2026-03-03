@@ -1,0 +1,32 @@
+{
+  "name": "sdq-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SADEEQKALYBUR/SDQ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SADEEQKALYBUR/SDQ/issues"
+  },
+  "homepage": "https://github.com/SADEEQKALYBUR/SDQ#readme",
+  "dependencies": {
+    "axios": "^1.13.6",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mysql2": "^3.18.0",
+    "pdfkit": "^0.17.2"
+  }
+}

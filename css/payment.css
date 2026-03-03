@@ -1,52 +1,211 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ===== PAGE BACKGROUND ===== */
 body {
-  font-family: Arial, sans-serif;
-  background: #000;
-  padding: 20px;
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
 }
 
-.payment-box {
-  max-width: 400px;
-  margin: auto;
-  background: #111;
+/* ===== ORDER CONTAINER ===== */
+.order-container {
+  background: #0f0f0f;
+  width: 100%;
+  max-width: 420px;
   padding: 25px;
-  border-radius: 10px;
-  border: 2px solid #f1c40f;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  box-shadow: 0 0 30px rgba(255, 193, 7, 0.25);
+  animation: fadeSlide 0.8s ease-in-out;
 }
 
-h2 {
+/* ===== CONTAINER ANIMATION ===== */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== ORDER ICON ===== */
+.order-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  background: radial-gradient(circle, #ffc107, #ff9800);
+  color: #000;
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255, 193, 7, 0.7);
+  animation: pulseIcon 1.8s infinite ease-in-out;
+}
+
+/* ===== ICON ANIMATION ===== */
+@keyframes pulseIcon {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255,193,7,0.6);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(255,193,7,0.9);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255,193,7,0.6);
+  }
+}
+
+/* ===== TITLE ===== */
+.order-title {
   text-align: center;
-  color: #f1c40f;
   margin-bottom: 20px;
+  color: #ffc107;
+  letter-spacing: 1px;
 }
 
-p {
-  font-size: 16px;
-  margin: 10px 0;
+/* ===== ORDER ROWS ===== */
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 15px;
+  opacity: 0;
+  animation: rowFade 0.6s ease forwards;
 }
 
-button {
+/* ✔ CORRECT & PROFESSIONAL ANIMATION ORDER */
+.order-row:nth-of-type(1) { animation-delay: 0.2s; }
+.order-row:nth-of-type(2) { animation-delay: 0.4s; }
+.order-row:nth-of-type(3) { animation-delay: 0.6s; }
+
+@keyframes rowFade {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ffc107, transparent);
+  margin: 18px 0;
+}
+
+/* ===== TOTAL ROW ===== */
+.total-row {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffc107;
+}
+
+/* ===== PAYMENT BUTTON ===== */
+.payment-button {
   width: 100%;
   padding: 14px;
-  margin-top: 12px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #ffc107, #ff9800);
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.card {
-  background: #f1c40f;
+  border-radius: 10px;
   color: #000;
+  font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.transfer {
-  background: transparent;
-  color: #f1c40f;
-  border: 2px solid #f1c40f;
+/* ===== BUTTON SHINE EFFECT ===== */
+.payment-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+
+.payment-button:hover::before {
+  left: 120%;
+}
+
+.payment-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 193, 7, 0.8);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .order-container {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .order-title {
+    font-size: 20px;
+  }
+
+  .total-row {
+    font-size: 16px;
+  }
+}body{
+  background:#000;
+  color:#fff;
+  font-family:Segoe UI;
+}
+
+.order-container{
+  width:400px;
+  margin:100px auto;
+  padding:30px;
+  background:#111;
+  border:1px solid gold;
+  border-radius:10px;
+  box-shadow:0 0 20px gold;
+}
+
+.order-title{
+  text-align:center;
+  color:gold;
+}
+
+.payment-button{
+  width:100%;
+  padding:12px;
+  background:gold;
+  color:black;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.payment-button:hover{
+  background:#ffd700;
 }
