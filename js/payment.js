@@ -1,42 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+  // 1. Karbo bayanai daga localStorage
   let service = localStorage.getItem("service");
   let price = localStorage.getItem("price");
   let qty = localStorage.getItem("qty") || 1;
 
+  // 2. Duba idan akwai kaya, idan babu, kada mu yi alert, mu tura shi Home kawai
   if (!service || !price) {
-    alert("No product selected!");
-    window.location.href = "index.html";
+    console.log("No product in storage, redirecting...");
+    window.location.href = "index.html"; 
     return;
   }
 
+  // 3. Mayar da su lamba (Numbers)
   price = Number(price);
   qty = Number(qty);
-
   let total = price * qty;
 
-  document.getElementById("pName").textContent = service;
-  document.getElementById("pPrice").textContent = "₦" + price;
-  document.getElementById("pQty").textContent = qty;
-  document.getElementById("pTotal").textContent = "₦" + total;
+  // 4. Nuna bayanan a shafin Payment
+  if(document.getElementById("pName")) document.getElementById("pName").textContent = service;
+  if(document.getElementById("pPrice")) document.getElementById("pPrice").textContent = "₦" + price.toLocaleString();
+  if(document.getElementById("pQty")) document.getElementById("pQty").textContent = qty;
+  if(document.getElementById("pTotal")) document.getElementById("pTotal").textContent = "₦" + total.toLocaleString();
 
-  document.querySelector(".payment-button")
-    .addEventListener("click", function () {
-      payWithPaystack(service, price, qty, total);
+  // 5. Button din biya
+  const payBtn = document.querySelector(".payment-button");
+  if (payBtn) {
+    payBtn.addEventListener("click", function () {
+      startPaystack(service, price, qty, total);
     });
-
+  }
 });
 
-function payWithPaystack(name, price, qty, total) {
-
+// 6. Function din biya guda daya kacal
+function startPaystack(name, price, qty, total) {
   let handler = PaystackPop.setup({
-    key: "YOUR_PUBLIC_KEY",
-    email: "customer@email.com",
-    amount: total * 100,
-    currency: "NGN",
-
+    key: 'pk_test_78fff190640337a7124e226987296b71c97cdbcc', // Test key dinka
+    email: 'customer@email.com',
+    amount: total * 100, // Kobo (Naira * 100)
+    currency: 'NGN',
     callback: function(response) {
-
+      // Tura bayanan zuwa server dinka don tantancewa
       fetch("http://localhost:3000/api/verify-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -50,33 +53,16 @@ function payWithPaystack(name, price, qty, total) {
       })
       .then(res => res.json())
       .then(data => {
-        alert("Payment Successful ✅ Receipt: " + data.receiptNo);
-        window.location.href =
-          "receipt.html?receipt=" + data.receiptNo;
+        alert("Biya ya yi nasara! ✅ Receipt: " + (data.receiptNo || response.reference));
+        window.location.href = "receipt.html?receipt=" + (data.receiptNo || response.reference);
+      })
+      .catch(err => {
+        console.error(err);
+        alert("An biya, amma an samu matsala wajen hadawa da server.");
       });
-
-    },
-
-    onClose: function() {
-      alert("Payment cancelled");
-    }
-  });
-
-  handler.openIframe();
-}
-
-function payWithPaystack() {
-  let handler = PaystackPop.setup({
-    key: 'pk_test_78fff190640337a7124e226987296b71c97cdbcc',
-    email: 'customer@email.com',
-    amount: 500000, // 5000 NGN (a kobo ake saka)
-    currency: 'NGN',
-    callback: function(response) {
-      alert('Payment successful! Reference: ' + response.reference);
-      window.location.href = "success.html";
     },
     onClose: function() {
-      alert('Transaction was not completed');
+      alert("Ka fita ba tare da ka kammala biya ba.");
     }
   });
 
